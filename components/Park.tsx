@@ -27,7 +27,7 @@ type Props = {
   park: number;
 };
 
-const admin = false;
+const admin = true;
 
 const myParkNo = 3;
 
