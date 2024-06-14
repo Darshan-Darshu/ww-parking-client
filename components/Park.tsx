@@ -32,7 +32,7 @@ const admin = true;
 const myParkNo = 3;
 
 function Park({ park }: Props) {
-  const isParkSelectable = park === myParkNo;
+  const isParkSelectable = !admin && park === myParkNo;
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(false);
   const bookedAllocation = useAppSelector(
@@ -87,8 +87,8 @@ function Park({ park }: Props) {
       <DialogTrigger>
         <div
           className={`flex items-center justify-center w-12 h-12 border ${
-            !isParkSelectable && "bg-gray-500"
-          } ${
+            !admin && "bg-gray-300"
+          } ${isParkSelectable && "bg-white"} ${
             isParkBooked > -1
               ? "border-green-400"
               : "border-black"
